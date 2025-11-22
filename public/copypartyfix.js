@@ -6,7 +6,7 @@ function cleanItems() {
 }
 
 function randomMingeEvent() {
-  const chance = 0.3;
+  const chance = 0.5;
   if (Math.random() > chance) return;
 
   const items = Array.from(document.querySelectorAll('#files td a, #files th a, span.dir'));
