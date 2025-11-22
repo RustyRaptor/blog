@@ -1,4 +1,4 @@
-document.querySelectorAll('#files td a, #files th a, #files td span.dir, #files th span.dir')
+document.querySelectorAll('#files td a, #files th a, span.dir')
   .forEach(el => {
     el.textContent = el.textContent
       .trimEnd()
@@ -9,7 +9,7 @@ document.querySelectorAll('#files td a, #files th a, #files td span.dir, #files 
   const chance = 0.3; // 30% chance of triggering
   if (Math.random() > chance) return;
 
-  const items = Array.from(document.querySelectorAll('#files td a, #files th a, #files td span.dir, #files th span.dir'));
+  const items = Array.from(document.querySelectorAll('#files td a, #files th a, span.dir'));
   if (items.length === 0) return;
 
   const randomItem = items[Math.floor(Math.random() * items.length)];
