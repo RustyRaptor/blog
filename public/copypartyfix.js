@@ -24,7 +24,6 @@ function randomMingeEvent() {
 
 // Run once at initial load
 cleanItems();
-randomMingeEvent();
 
 // --- URL CHANGE DETECTION BELOW ---
 
@@ -38,7 +37,6 @@ new MutationObserver(() => {
     // Give the page time to load new content
     setTimeout(() => {
       cleanItems();
-      randomMingeEvent();
     }, 50);
   }
 }).observe(document, { subtree: true, childList: true });
@@ -59,26 +57,6 @@ new MutationObserver(() => {
 window.addEventListener("urlchange", () => {
   setTimeout(() => {
     cleanItems();
-    randomMingeEvent();
   }, 50);
-});
-
-// CONFIG
-const soundChance = 0.9; 
-const soundUrl = "https://rustyraptor.github.io/blog/huh.opus";
-
-// Create audio object once
-const funnySound = new Audio(soundUrl);
-
-// Global click handler
-document.addEventListener("click", function (event) {
-  const link = event.target.closest("a");
-  if (!link) return; // ignore clicks not on <a>
-
-  // Roll dice
-  if (Math.random() <= soundChance) {
-    funnySound.currentTime = 0; // restart from beginning
-    funnySound.play().catch(() => {}); // ignore autoplay restrictions
-  }
 });
 
