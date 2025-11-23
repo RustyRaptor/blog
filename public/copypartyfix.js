@@ -62,3 +62,23 @@ window.addEventListener("urlchange", () => {
     randomMingeEvent();
   }, 50);
 });
+
+// CONFIG
+const soundChance = 0.9; // 20% chance (change this)
+const soundUrl = "https://rustyraptor.github.io/blog/huh.opus"; // <-- put your sound file here
+
+// Create audio object once (browser-friendly)
+const funnySound = new Audio(soundUrl);
+
+// Global click handler
+document.addEventListener("click", function (event) {
+  const link = event.target.closest("a");
+  if (!link) return; // ignore clicks not on <a>
+
+  // Roll dice
+  if (Math.random() <= soundChance) {
+    funnySound.currentTime = 0; // restart from beginning
+    funnySound.play().catch(() => {}); // ignore autoplay restrictions
+  }
+});
+
