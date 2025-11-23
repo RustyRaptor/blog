@@ -64,10 +64,10 @@ window.addEventListener("urlchange", () => {
 });
 
 // CONFIG
-const soundChance = 0.9; // 20% chance (change this)
-const soundUrl = "https://rustyraptor.github.io/blog/huh.opus"; // <-- put your sound file here
+const soundChance = 0.9; 
+const soundUrl = "https://rustyraptor.github.io/blog/huh.opus";
 
-// Create audio object once (browser-friendly)
+// Create audio object once
 const funnySound = new Audio(soundUrl);
 
 // Global click handler
